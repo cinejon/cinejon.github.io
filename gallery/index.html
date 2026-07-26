@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Jon Aldrich Laredo</title>
+
+    <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>JON ALDRICH LAREDO</h2>
+
+    <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Open navigation">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+    <ul id="nav-links">
+
+        <li><a href="../">Home</a></li>
+<li><a href="../gallery/" class="active">Photography</a></li>
+<li><a href="#" class="nav-disabled">Films</a></li>
+<li><a href="../#about">About</a></li>
+<li><a href="../#contact">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<section class="photo-hero">
+
+    <p class="photo-label">
+        PHOTOGRAPHY
+    </p>
+
+    <h1>
+        Gallery
+    </h1>
+
+    <p class="photo-description">
+    A curated collection of photographs capturing moments, places, and stories through my lens.
+</p>
+
+</section>
+
+<section class="featured hidden">
+
+    <p class="section-label">
+        FEATURED WORK
+    </p>
+
+    <h2>
+        Selected Photographs
+    </h2>
+
+    <div class="featured-grid">
+
+        <div class="featured-large">
+
+    <img
+        src="../images/photo1.jpg"
+        alt="Featured Photo"
+        class="featured-image">
+
+</div>
+
+        <div>
+
+            <div class="featured-small">
+
+                <img
+    src="../images/photo2.jpg"
+    alt="Featured Photo"
+    class="featured-image">
+
+            </div>
+
+            <div class="featured-small">
+
+                <img
+    src="../images/photo3.jpg"
+    alt="Featured Photo"
+    class="featured-image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery">
+
+    <div class="gallery-filters">
+
+        <button class="filter-btn active" data-filter="all">All</button>
+
+        <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+
+        <button class="filter-btn" data-filter="urban">Urban</button>
+
+        <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+
+        <button class="filter-btn" data-filter="landscape">Landscape</button>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo1.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo2.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="wildlife">
+
+    <img src="../images/photo3.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Wildlife</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="landscape">
+
+    <img src="../images/photo4.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Landscape</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo5.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="lifestyle">
+
+    <img src="../images/photo6.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Lifestyle</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo7.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo8.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="landscape">
+
+    <img src="../images/photo9.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Landscape</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo10.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="landscape">
+
+    <img src="../images/photo11.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Landscape</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="lifestyle">
+
+    <img src="../images/photo12.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Lifestyle</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo13.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="landscape">
+
+    <img src="../images/photo14.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Landscape</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="lifestyle">
+
+    <img src="../images/photo15.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Lifestyle</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="wildlife">
+
+    <img src="../images/photo16.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Wildlife</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="wildlife">
+
+    <img src="../images/photo17.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Wildlife</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo18.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo19.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+<div class="gallery-item" data-category="urban">
+
+    <img src="../images/photo20.jpg" alt="Photo">
+
+    <div class="photo-overlay">
+
+        <p>Urban</p>
+
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-prev">&#10094;</button>
+
+    <img class="lightbox-image" id="lightbox-image" alt="">
+
+    <button class="lightbox-next">&#10095;</button>
+
+    <span class="close-lightbox">&times;</span>
+
+    <div class="lightbox-info">
+
+    <h3 id="photo-title">Untitled</h3>
+
+    <p id="photo-category">Category</p>
+
+    <p class="photo-counter" id="photo-counter">
+        1 / 20
+    </p>
+
+</div>
+
+</div>
+
+<script src="../script.js"></script>
+<script src="gallery.js"></script>
+
+</body>
+
+</html>

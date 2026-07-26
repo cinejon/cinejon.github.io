@@ -113,3 +113,43 @@ hamburger.classList.remove("active");
     });
 
 });
+
+const slides = document.querySelectorAll(".portfolio-slideshow .slide");
+
+let currentSlide = 0;
+
+if (slides.length > 0) {
+
+    setInterval(() => {
+
+        slides[currentSlide].classList.remove("active");
+
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        slides[currentSlide].classList.add("active");
+
+    }, 6000);
+
+}
+
+const cards = document.querySelectorAll(".portfolio-card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+
+        const rect = card.getBoundingClientRect();
+
+        card.style.setProperty(
+            "--x",
+            `${e.clientX - rect.left}px`
+        );
+
+        card.style.setProperty(
+            "--y",
+            `${e.clientY - rect.top}px`
+        );
+
+    });
+
+});

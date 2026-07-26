@@ -614,9 +614,32 @@ html {
     scroll-behavior: smooth;
 }
 
-nav a {
+nav a{
     color: inherit;
     text-decoration: none;
+    position: relative;
+    transition: color .3s ease;
+}
+
+nav a.active{
+    color: white;
+}
+
+nav a.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 999px;
+}
+
+nav a.nav-disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+    pointer-events:none;
 }
 
 .hidden{
@@ -847,5 +870,208 @@ footer {
     filter:blur(140px);
 
     pointer-events:none;
+
+}
+
+/* ========================================
+   PORTFOLIO GATEWAY
+======================================== */
+
+.portfolio-gateway {
+    padding: 120px 8%;
+}
+
+.portfolio-grid {
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.portfolio-card {
+    position: relative;
+
+    isolation: isolate;
+
+    display: block;
+
+    height: 500px;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    background: #111;
+
+    transition: transform .4s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .6s ease;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.15),
+        transparent
+    );
+}
+
+.portfolio-card-content {
+    position: absolute;
+
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+
+    color: white;
+
+    z-index: 2;
+}
+
+.portfolio-card-content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-card-content p {
+    opacity: .85;
+}
+
+.disabled {
+    background: linear-gradient(135deg,#1d1d1d,#2c2c2c);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: default;
+}
+
+.disabled::after {
+    display: none;
+}
+
+.film-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle at top,
+        rgba(255,255,255,.08),
+        transparent 55%),
+
+        linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #030712);
+
+    opacity:.95;
+}
+
+.coming-soon-tag{
+
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.portfolio-slideshow{
+    position:absolute;
+    inset:0;
+}
+
+.slide{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:
+        opacity 1.5s ease,
+        transform 8s ease;
+
+    transform:scale(1);
+}
+
+.slide.active{
+
+    opacity:1;
+
+    transform:scale(1.05);
+}
+
+.portfolio-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        400px circle at var(--x) var(--y),
+        rgba(255,255,255,.16),
+        transparent 40%
+    );
+
+    opacity:0;
+
+    transition:opacity .3s ease;
+
+    z-index:1;
+
+    pointer-events:none;
+
+}
+
+.portfolio-card:hover::before{
+
+    opacity:1;
 
 }

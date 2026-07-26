@@ -14,19 +14,33 @@ buttons.forEach(button => {
 
         photos.forEach(photo => {
 
-            if(filter === "all" || photo.dataset.category === filter){
+    const show =
+        filter === "all" ||
+        photo.dataset.category === filter;
 
-                photo.style.display = "block";
+    if(show){
 
-            }
+        photo.style.display = "block";
 
-            else{
+        requestAnimationFrame(() => {
 
-                photo.style.display = "none";
-
-            }
+            photo.classList.remove("hidden");
 
         });
+
+    }else{
+
+        photo.classList.add("hidden");
+
+        setTimeout(() => {
+
+            photo.style.display = "none";
+
+        }, 350);
+
+    }
+
+});
 
     });
 
@@ -36,11 +50,15 @@ const lightbox = document.getElementById("lightbox");
 
 const lightboxImage = document.getElementById("lightbox-image");
 
+const photoCounter = document.getElementById("photo-counter");
+
 const prevBtn = document.querySelector(".lightbox-prev");
 
 const nextBtn = document.querySelector(".lightbox-next");
 
-const galleryImages = document.querySelectorAll(".gallery-item img");
+const galleryImages = document.querySelectorAll(
+    ".gallery-item img, .featured-image"
+);
 
 console.log(galleryImages);
 console.log(galleryImages.length);
@@ -55,7 +73,7 @@ galleryImages.forEach((image, index) => {
 
         lightbox.classList.add("active");
 
-        lightboxImage.src = image.src;
+        updateImage();
 
     });
 
@@ -64,6 +82,9 @@ galleryImages.forEach((image, index) => {
 function updateImage(){
 
     lightboxImage.src = galleryImages[currentImage].src;
+
+    photoCounter.textContent =
+        `${currentImage + 1} / ${galleryImages.length}`;
 
 }
 
