@@ -173,11 +173,13 @@ nav h2{
 
     font-size:72px;
 
-    color: #f1f1f1;
+    color:#f1f1f1;
 
     letter-spacing:8px;
 
-    margin-bottom:20px;
+    margin:0 0 20px;
+
+    font-weight:700;
 
 }
 
@@ -188,6 +190,12 @@ nav h2{
     color:#3D4F59;
 
     letter-spacing:4px;
+
+    margin:30px auto;
+
+    max-width:600px;
+
+    line-height:1.6;
 
 }
 
@@ -482,7 +490,7 @@ nav h2{
 
     border-radius:20px;
 
-    cursor:ew-resize;
+    cursor:default;
 
     user-select:none;
 
@@ -530,7 +538,9 @@ user-select:none;
 
     transform:translateX(-50%);
 
-    pointer-events:none;
+    pointer-events:auto;
+
+    cursor:ew-resize;
 
 }
 
@@ -552,45 +562,34 @@ user-select:none;
 
     box-shadow:0 0 25px rgba(0,0,0,.35);
 
-    pointer-events:none;
+    pointer-events:auto;
+
+    cursor:ew-resize;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
+    gap:4px;
+
 }
 
 .slider-handle span{
 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:8px;
+
     font-size:18px;
     font-weight:700;
+    line-height:1;
 
     color:#111214;
 
-    letter-spacing:-2px;
-
     user-select:none;
 
-}
-
-.hero h1 {
-    font-size: 80px;
-    letter-spacing: 8px;
-    margin: 0;
-    font-weight: 700;
-}
-
-.hero h2 {
-    font-size: 28px;
-    margin-top: 15px;
-    font-weight: 400;
-}
-
-.hero p {
-    font-size: 18px;
-    margin: 30px auto;
-    max-width: 600px;
-    line-height: 1.6;
 }
 
 .about {
@@ -743,6 +742,155 @@ nav a.nav-disabled{
         letter-spacing:4px;
 
     }
+
+    .portfolio-grid{
+
+    grid-template-columns:1fr;
+
+    gap:24px;
+
+}
+
+.portfolio-card{
+
+    height:360px;
+
+}
+
+.portfolio-card-content{
+
+    left:22px;
+    right:22px;
+    bottom:22px;
+
+}
+
+.portfolio-card-content h3{
+
+    font-size:1.55rem;
+
+}
+
+.portfolio-card-content p{
+
+    font-size:.95rem;
+
+}
+
+.coming-soon-tag{
+
+    font-size:.65rem;
+
+    padding:7px 14px;
+
+}
+
+/* ==========================
+   Before / After Slider
+========================== */
+
+.slider-handle{
+
+    width:38px;
+    height:38px;
+
+}
+
+.slider-handle span{
+
+    width:6px;
+
+    font-size:14px;
+
+}
+
+.project{
+
+    margin:100px auto;
+
+}
+
+.project-number{
+
+    font-size:42px;
+
+}
+
+.project-header h3{
+
+    font-size:24px;
+
+}
+
+.project-description{
+
+    font-size:.95rem;
+
+}
+
+/* ==========================
+   Portfolio Gateway
+========================== */
+
+.portfolio-gateway{
+
+    padding:90px 20px;
+
+}
+
+.portfolio-grid{
+
+    grid-template-columns:1fr;
+
+    gap:22px;
+
+    margin-top:40px;
+
+}
+
+.portfolio-card{
+
+    height:300px;
+
+}
+
+.portfolio-card-content{
+
+    left:20px;
+    right:20px;
+    bottom:20px;
+
+}
+
+.portfolio-card-content h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:6px;
+
+}
+
+.portfolio-card-content p{
+
+    font-size:.88rem;
+
+    line-height:1.5;
+
+    opacity:.8;
+
+}
+
+.coming-soon-tag{
+
+    font-size:.60rem;
+
+    letter-spacing:1.5px;
+
+    padding:6px 12px;
+
+    margin-bottom:14px;
+
+}
 
 }
 
@@ -1088,5 +1236,57 @@ footer {
 .portfolio-card:hover::before{
 
     opacity:1;
+
+}
+
+@media (max-width:768px){
+
+    .portfolio-grid{
+
+        grid-template-columns:1fr;
+
+        gap:24px;
+
+        margin-top:40px;
+
+    }
+
+    .portfolio-card{
+
+        height:320px;
+
+    }
+
+    .portfolio-card-content{
+
+        left:22px;
+        right:22px;
+        bottom:22px;
+
+    }
+
+    .portfolio-card-content h3{
+
+        font-size:1.6rem;
+
+        margin-bottom:8px;
+
+    }
+
+    .portfolio-card-content p{
+
+        font-size:.95rem;
+
+        line-height:1.5;
+
+    }
+
+    .coming-soon-tag{
+
+        font-size:.65rem;
+
+        padding:7px 14px;
+
+    }
 
 }

@@ -34,23 +34,41 @@ document.querySelectorAll(".comparison").forEach((comparison) => {
         line.style.left = percent + "%";
 
         handle.style.left = percent + "%";
+
     }
 
-    comparison.addEventListener("mousedown", (e) => {
+    function startDrag(e){
 
-    if (e.button !== 0) return;
+        if(e.button !== 0) return;
+
+        e.preventDefault();
+
+        dragging = true;
+
+        updateSlider(e.clientX);
+
+    }
+
+    function startTouch(e){
 
     e.preventDefault();
 
     dragging = true;
 
-    updateSlider(e.clientX);
+    updateSlider(e.touches[0].clientX);
 
-});
+}
+
+    handle.addEventListener("mousedown", startDrag);
+    line.addEventListener("mousedown", startDrag);
+
+    handle.addEventListener("touchstart", startTouch, { passive: false });
+line.addEventListener("touchstart", startTouch, { passive: false });
 
     window.addEventListener("mouseup", () => dragging = false);
+    window.addEventListener("touchend", () => dragging = false);
 
-    window.addEventListener("mousemove",(e)=>{
+    window.addEventListener("mousemove", (e) => {
 
         if(!dragging) return;
 
@@ -58,11 +76,7 @@ document.querySelectorAll(".comparison").forEach((comparison) => {
 
     });
 
-    comparison.addEventListener("touchstart",()=>dragging=true);
-
-    window.addEventListener("touchend",()=>dragging=false);
-
-    window.addEventListener("touchmove",(e)=>{
+    window.addEventListener("touchmove", (e) => {
 
         if(!dragging) return;
 
