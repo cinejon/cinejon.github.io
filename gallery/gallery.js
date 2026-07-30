@@ -56,19 +56,35 @@ const prevBtn = document.querySelector(".lightbox-prev");
 
 const nextBtn = document.querySelector(".lightbox-next");
 
-const galleryImages = document.querySelectorAll(
-    ".gallery-item img, .featured-image"
-);
+const featuredImages = document.querySelectorAll(".featured-image");
+const galleryImages = document.querySelectorAll(".gallery-item img");
 
 console.log(galleryImages);
 console.log(galleryImages.length);
 
 let currentImage = 0;
+let currentCollection = galleryImages;
 
 galleryImages.forEach((image, index) => {
 
     image.addEventListener("click", () => {
 
+        currentCollection = galleryImages;
+        currentImage = index;
+
+        lightbox.classList.add("active");
+
+        updateImage();
+
+    });
+
+});
+
+featuredImages.forEach((image, index) => {
+
+    image.addEventListener("click", () => {
+
+        currentCollection = featuredImages;
         currentImage = index;
 
         lightbox.classList.add("active");
@@ -81,10 +97,10 @@ galleryImages.forEach((image, index) => {
 
 function updateImage(){
 
-    lightboxImage.src = galleryImages[currentImage].src;
+    lightboxImage.src = currentCollection[currentImage].src;
 
     photoCounter.textContent =
-        `${currentImage + 1} / ${galleryImages.length}`;
+        `${currentImage + 1} / ${currentCollection.length}`;
 
 }
 
@@ -92,7 +108,7 @@ nextBtn.addEventListener("click", (e) => {
 
     e.stopPropagation();
 
-    currentImage = (currentImage + 1) % galleryImages.length;
+    currentImage = (currentImage + 1) % currentCollection.length;
 
     updateImage();
 
@@ -102,7 +118,7 @@ prevBtn.addEventListener("click", (e) => {
 
     e.stopPropagation();
 
-    currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
+    currentImage = (currentImage - 1 + currentCollection.length) % currentCollection.length;
 
     updateImage();
 
