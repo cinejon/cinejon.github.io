@@ -90,7 +90,7 @@ line.addEventListener("touchstart", startTouch, { passive: false });
 
 const nav = document.querySelector("nav");
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
     if(window.scrollY>50){
 
@@ -102,7 +102,7 @@ window.addEventListener("scroll",()=>{
 
     }
 
-});
+    }, { passive: true });
 
 // Mobile Navigation
 
@@ -190,26 +190,40 @@ window.addEventListener("load", () => {
 
 });
 
-// Cinematic Hero Parallax
+// Cinematic Hero Parallax (Optimized)
 
 const hero = document.querySelector(".hero");
 const heroContent = document.querySelector(".hero-content");
 
+let heroTicking = false;
+
 window.addEventListener("scroll", () => {
 
-    const scroll = window.scrollY;
+    if (heroTicking) return;
 
-    if (scroll > window.innerHeight) return;
+    heroTicking = true;
 
-    hero.style.setProperty(
-        "--hero-offset",
-        `${scroll * 0.22}px`
-    );
+    requestAnimationFrame(() => {
 
-    heroContent.style.transform =
-        `translateY(${scroll * 0.35}px)`;
+        const scroll = window.scrollY;
 
-    heroContent.style.opacity =
-        Math.max(0, 1 - scroll / 700);
+        if (scroll <= window.innerHeight) {
 
-});
+            hero.style.setProperty(
+                "--hero-offset",
+                `${scroll * 0.22}px`
+            );
+
+            heroContent.style.transform =
+                `translateY(${scroll * 0.35}px)`;
+
+            heroContent.style.opacity =
+                Math.max(0, 1 - scroll / 700);
+
+        }
+
+        heroTicking = false;
+
+    });
+
+}, { passive: true });
