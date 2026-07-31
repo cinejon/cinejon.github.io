@@ -132,6 +132,8 @@ nav h2{
     position:relative;
     isolation:isolate;
 
+    overflow:hidden;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -142,6 +144,21 @@ nav h2{
     padding:70px 30px 0;
 
     color:white;
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    will-change:transform, opacity;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
 
 }
 
@@ -158,7 +175,12 @@ nav h2{
 
     animation:heroZoom 30s ease-in-out forwards;
 
-    transform:scale(1);
+    transform:
+    translate(
+        0,
+        var(--hero-offset,0)
+    )
+    scale(1);
 
     will-change: transform;
 
@@ -166,15 +188,43 @@ nav h2{
 
 @keyframes heroZoom{
 
-    from{
+    0%{
 
-        transform:scale(1);
+        transform:
+            translate(0px,0px)
+            scale(1);
 
     }
 
-    to{
+    25%{
 
-        transform:scale(1.08);
+        transform:
+            translate(-10px,-6px)
+            scale(1.02);
+
+    }
+
+    50%{
+
+        transform:
+            translate(8px,-12px)
+            scale(1.04);
+
+    }
+
+    75%{
+
+        transform:
+            translate(-6px,8px)
+            scale(1.06);
+
+    }
+
+    100%{
+
+        transform:
+            translate(4px,-4px)
+            scale(1.08);
 
     }
 
@@ -280,6 +330,15 @@ rgba(17,18,20,.82) 100%
         transform .35s,
         box-shadow .35s,
         border-color .35s;
+
+}
+
+.hero h1,
+.hero p,
+.hero h3,
+.button{
+
+    will-change: transform, opacity;
 
 }
 
@@ -1368,4 +1427,144 @@ footer {
 
 #portfolio-gateway{
     scroll-margin-top:110px;
+}
+
+/* ========================================
+   CINEMATIC INTRO
+======================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0a0a0a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:
+        opacity .9s ease,
+        visibility .9s ease;
+
+}
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-content h1{
+
+    font-size:52px;
+
+    letter-spacing:8px;
+
+    color:white;
+
+    opacity:0;
+
+    animation:introTitle .8s forwards;
+
+}
+
+.loader-line{
+
+    width:0;
+
+    height:2px;
+
+    margin:24px auto 0;
+
+    background:white;
+
+    animation:introLine .8s .45s forwards;
+
+}
+
+@keyframes introTitle{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes introLine{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:220px;
+
+    }
+
+}
+
+/* ========================================
+   CINEMATIC REVEALS
+======================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    clip-path:inset(0 0 100% 0);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        clip-path .9s cubic-bezier(.22,.61,.36,1);
+
+    will-change:
+        transform,
+        opacity,
+        clip-path;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    clip-path:inset(0 0 0 0);
+
 }

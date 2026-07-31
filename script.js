@@ -7,7 +7,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+document
+    .querySelectorAll(".hidden, .reveal")
+    .forEach((el) => observer.observe(el));
 
 
 // Before / After Slider
@@ -165,5 +167,49 @@ cards.forEach(card => {
         );
 
     });
+
+});
+
+// Cinematic Intro
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    if (!loader) return;
+
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+
+        loader.classList.add("hide");
+
+        document.body.style.overflow = "";
+
+    }, 1800);
+
+});
+
+// Cinematic Hero Parallax
+
+const hero = document.querySelector(".hero");
+const heroContent = document.querySelector(".hero-content");
+
+window.addEventListener("scroll", () => {
+
+    const scroll = window.scrollY;
+
+    if (scroll > window.innerHeight) return;
+
+    hero.style.setProperty(
+        "--hero-offset",
+        `${scroll * 0.22}px`
+    );
+
+    heroContent.style.transform =
+        `translateY(${scroll * 0.35}px)`;
+
+    heroContent.style.opacity =
+        Math.max(0, 1 - scroll / 700);
 
 });
