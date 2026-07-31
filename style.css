@@ -129,10 +129,6 @@ nav h2{
 
     min-height:100vh;
 
-    background-image:url("images/hero.jpg");
-    background-size:cover;
-    background-position:center;
-
     position:relative;
     isolation:isolate;
 
@@ -143,9 +139,44 @@ nav h2{
 
     text-align:center;
 
-    padding:0 30px;
+    padding:70px 30px 0;
 
     color:white;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:url("images/hero.jpg") center/cover no-repeat;
+
+    z-index:-1;
+
+    animation:heroZoom 30s ease-in-out forwards;
+
+    transform:scale(1);
+
+    will-change: transform;
+
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
 
 }
 
@@ -158,14 +189,24 @@ nav h2{
     inset:0;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(17,18,20,0) 35%,
-            rgba(17,18,20,.20) 70%,
-            rgba(17,18,20,.55) 100%
-        );
+
+radial-gradient(
+
+circle,
+
+rgba(17,18,20,0) 20%,
+
+rgba(17,18,20,.18) 55%,
+
+rgba(17,18,20,.55) 82%,
+
+rgba(17,18,20,.82) 100%
+
+);
 
     pointer-events:none;
+
+    z-index:0;
 
 }
 
@@ -270,31 +311,65 @@ nav h2{
 
 }
 
-.scroll-arrow{
+.scroll-indicator{
 
     position:absolute;
 
-    bottom:40px;
+    bottom:36px;
 
-    font-size:30px;
+    width:28px;
 
-    opacity:.6;
+    height:48px;
 
-    animation:bounce 2s infinite;
+    border:2px solid rgba(255,255,255,.5);
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
 
 }
 
-@keyframes bounce{
+.scroll-indicator span{
 
-    0%,100%{
+    width:4px;
+
+    height:9px;
+
+    border-radius:999px;
+
+    background:white;
+
+    margin-top:8px;
+
+    animation:scrollMouse 2s infinite;
+
+}
+
+@keyframes scrollMouse{
+
+    0%{
+
+        opacity:0;
 
         transform:translateY(0);
 
     }
 
-    50%{
+    40%{
 
-        transform:translateY(10px);
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translateY(16px);
 
     }
 
