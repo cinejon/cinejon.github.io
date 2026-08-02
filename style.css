@@ -18,14 +18,19 @@ body{
 
 nav{
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 20px;
+    width: min(1180px, calc(100% - 40px));
+
+    left: 50%;
+transform: translateX(-50%);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 22px 60px;
+    padding: 18px 36px;
+
+    border-radius: 18px;
 
     background: rgba(17,18,20,0.75);
     backdrop-filter: blur(14px);
@@ -33,7 +38,10 @@ nav{
 
     z-index: 1000;
 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,0.18);
 }
 
 nav ul{
