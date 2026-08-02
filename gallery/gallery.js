@@ -14,9 +14,11 @@ buttons.forEach(button => {
 
         photos.forEach(photo => {
 
-    const show =
-        filter === "all" ||
-        photo.dataset.category === filter;
+    const categories = photo.dataset.category.split(" ");
+
+const show =
+    filter === "all" ||
+    categories.includes(filter);
 
     if(show){
 
@@ -83,12 +85,15 @@ console.log(galleryImages.length);
 let currentImage = 0;
 let currentCollection = galleryImages;
 
-galleryImages.forEach((image, index) => {
+galleryImages.forEach((image) => {
 
     image.addEventListener("click", () => {
 
-        currentCollection = galleryImages;
-        currentImage = index;
+        currentCollection = Array.from(galleryImages).filter(img =>
+            img.closest(".gallery-item").style.display !== "none"
+        );
+
+        currentImage = currentCollection.indexOf(image);
 
         lightbox.classList.add("active");
 
