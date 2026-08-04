@@ -1,10 +1,28 @@
 // Scroll Animation
 const observer = new IntersectionObserver((entries) => {
+
     entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("show");
+
+        // One-time shimmer for the Featured Color Grades heading
+        if (
+            entry.target.classList.contains("shimmer-title") &&
+            !entry.target.classList.contains("shine")
+        ) {
+
+            setTimeout(() => {
+
+                entry.target.classList.add("shine");
+
+            }, 200);
+
         }
+
     });
+
 });
 
 document

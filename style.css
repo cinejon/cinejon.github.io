@@ -1579,3 +1579,78 @@ footer {
     clip-path:inset(0 0 0 0);
 
 }
+
+/* ========================================
+   FEATURED COLOR GRADES SHIMMER
+======================================== */
+
+.shimmer-title{
+
+    position: relative;
+
+    display: inline-block;
+
+    overflow: hidden;
+
+}
+
+.shimmer-title::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-150%;
+    left:-120%;
+
+    width:70px;
+    height:400%;
+
+    background:linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.25) 42%,
+        rgba(255,255,255,1) 50%,
+        rgba(255,255,255,0.25) 58%,
+        transparent 70%
+    );
+
+    transform:rotate(90deg);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
+
+}
+
+.shimmer-title.shine::before{
+
+    animation:shimmerSweep 1.2s ease forwards;
+
+}
+
+@keyframes shimmerSweep{
+
+    0%{
+
+        left:-120%;
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        left:160%;
+        opacity:0;
+
+    }
+
+}
