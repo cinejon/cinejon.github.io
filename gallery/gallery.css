@@ -6,49 +6,117 @@
 
     flex-direction:column;
 
-    justify-content:center;
+    justify-content:flex-start;
+
+    padding-top:26vh;
 
     align-items:center;
 
     text-align:center;
 
-    padding:0 30px;
+    padding:26vh 30px 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+linear-gradient(
+    180deg,
+    #1A1C20 0%,
+    #17191D 20%,
+    #131519 40%,
+    #101216 65%,
+    #0C0D10 85%,
+    #090A0C 100%
+);
+
+}
+
+.photo-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at 50% 10%,
+        rgba(55,75,110,.14) 0%,
+        rgba(35,45,70,.08) 30%,
+        transparent 72%
+    );
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.photo-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(0,0,0,.10) 75%,
+            rgba(0,0,0,.22) 100%
+        );
+
+    pointer-events:none;
 
 }
 
 .photo-label{
 
-    font-size:14px;
+    position:relative;
+z-index:1;
 
-    letter-spacing:6px;
+    font-size:13px;
 
-    color:#7f8792;
+letter-spacing:8px;
 
-    margin-bottom:20px;
+color:#8B9098;
+
+margin-bottom:24px;
 
 }
 
 .photo-hero h1{
 
-    font-size:84px;
+    position:relative;
+z-index:1;
+
+    font-size:88px;
 
     font-weight:700;
 
-    letter-spacing:6px;
+    letter-spacing:2px;
 
-    margin-bottom:30px;
+margin-bottom:30px;
 
 }
 
 .photo-description{
 
-    max-width:650px;
+    position:relative;
+z-index:1;
+
+    max-width:520px;
 
     font-size:20px;
 
-    line-height:1.8;
+    line-height:1.95;
 
-    color:#a3a3a3;
+color:#989DA5;
 
 }
 
