@@ -1775,3 +1775,83 @@ footer {
     color:#FF0000;
 
 }
+
+/* Apple-inspired light palette: bright canvas, charcoal accents, original layout. */
+:root {
+    color-scheme: light;
+    --page: #ffffff;
+    --surface: #f5f5f7;
+    --ink: #1d1d1f;
+    --muted: #606066;
+    --border: rgba(29,29,31,.12);
+}
+
+body { background: var(--page); color: var(--ink); }
+nav {
+    background: rgba(250,250,252,.82);
+    border-color: var(--border);
+    box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+nav.scrolled {
+    background: rgba(250,250,252,.94);
+    border-bottom-color: var(--border);
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+nav ul li { color: #515154; }
+nav ul li:hover, nav a.active { color: var(--ink); }
+nav a.active::after, .hamburger span { background: var(--ink); }
+
+/* Preserve the original hero photograph and vignette: no white wash. */
+.hero, .hero h1 { color: var(--ink); }
+.hero p, .hero h3 { color: #303b40; }
+.button {
+    background: var(--ink);
+    color: #f5f5f7;
+    border-color: var(--ink);
+}
+.button:hover {
+    background: #353538;
+    color: #ffffff;
+    border-color: #353538;
+    box-shadow: 0 10px 35px rgba(0,0,0,.16);
+}
+.button:focus-visible { outline-color: var(--ink); }
+
+.work { background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%); }
+.work p { color: var(--muted); }
+.work .project-number { color: rgba(29,29,31,.40); }
+.work .project-category, .project-header span { color: var(--muted); }
+.comparison { border-color: var(--border); }
+.work::before { background: rgba(255,255,255,.35); }
+.portfolio-gateway { background: var(--page); }
+.section-label, .section-description { color: var(--muted); }
+
+/* Retain dark image cards and the original dark Cinematography card. */
+.about {
+    background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+    color: var(--ink);
+}
+.about p, .contact p { color: var(--muted); }
+.contact { background: var(--page); }
+.contact p:last-child { color: var(--ink); }
+
+/* A dark closing surface balances the bright page and image cards. */
+footer { background: #1d1d1f; border-top-color: rgba(255,255,255,.10); }
+footer p { color: #f5f5f7; }
+.footer-subtitle { color: #a1a1a6; }
+::selection { background: var(--ink); color: #ffffff; }
+
+#loader { background: var(--page); }
+.loader-content h1 { color: var(--ink); }
+.loader-line { background: var(--ink); }
+.shimmer-title::before { mix-blend-mode: normal; }
+
+/* The dark floating dock remains a contrasting accent. */
+.social-icon, .social-toggle {
+    background: rgba(29,29,31,.88);
+    border-color: rgba(255,255,255,.12);
+    box-shadow: 0 8px 30px rgba(0,0,0,.16);
+}
+@media (max-width:768px) {
+    nav ul { background: #fafafc; }
+}
